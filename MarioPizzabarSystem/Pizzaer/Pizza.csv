@@ -1,15 +1,15 @@
-Nr.;Navn;Pris
-1;Vesuvio;57
-2;Amerikaner;53
-3;Cacciatore;57
-4;Carbona;63
-5;Dennis;65
-6;Bertil;57
-7;Silvia;61
-8;Victoria;61
-9;Toronfo;61
-10;Capricciosa;61
-11;Hawai;61
-12;Le Blissola;61
-13;Venezia;61
-14;Mafia;61
+Nr.;Type;Navn;Pris
+1;Pizza;Vesuvio;57
+2;Pizza;Amerikaner;53
+3;Pizza;Cacciatore;57
+4;Pizza;Carbona;63
+5;Pizza;Dennis;65
+6;Pizza;Bertil;57
+7;Pizza;Silvia;61
+8;Pizza;Victoria;61
+9;Pizza;Toronfo;61
+10;Pizza;Capricciosa;61
+11;Pizza;Hawai;61
+12;Pizza;Le Blissola;61
+13;Pizza;Venezia;61
+14;Pizza;Mafia;61
