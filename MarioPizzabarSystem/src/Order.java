@@ -45,4 +45,17 @@ public class Order {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+    public String orderlinesToString(){
+        String orderLines = "";
+        for (int i = 0; i<orderLineItems.size(); i++){
+            orderLines += "\n" + orderLineItems.get(i);
+        }
+        return orderLines;
+    }
+
+    @Override
+    public String toString(){
+        return ""+ date + " " + pickUpTime + " " + completed + orderlinesToString();
+    }
 }
