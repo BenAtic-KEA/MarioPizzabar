@@ -43,8 +43,7 @@ public class OrderLineItem {
         return "OrderLineItem" +
                 "subtotal = " + subtotal +
                 ", quantity = " + quantity +
-                ", pizza = " + pizza +
-                ;
+                ", pizza = " + pizza;
     }
 }
 
