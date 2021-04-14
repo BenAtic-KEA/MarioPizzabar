@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -6,7 +7,7 @@ import java.util.Scanner;
 public class Order {
     private double total;
     private Date date;
-    private Date pickUpTime;
+    private PickupTime pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
 
@@ -23,7 +24,7 @@ public class Order {
         return date;
     }
 
-     public Date getPickUpTime(){
+     public PickupTime getPickUpTime(){
         return pickUpTime;
      }
 
@@ -60,13 +61,13 @@ public class Order {
         }
     }
 
-    // Temp setters skal måske fjernes senere.
-    public void setPickUpTime(Date pickUpTime) {
-        this.pickUpTime = pickUpTime;
+    public void setDate() {
+        date = new Date();
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    // Temp setters skal måske fjernes senere.
+    public void setPickUpTime(PickupTime pickUpTime) {
+        this.pickUpTime = pickUpTime;
     }
 
     public void setCompleted(boolean completed) {
@@ -85,6 +86,11 @@ public class Order {
     // String repræsentation af Order objektet.
     @Override
     public String toString(){
-        return "" + getDate() + " " + getPickUpTime() + " " + getTotal() + orderLinesToString() + "\n" + isCompleted();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String fuldført = "Nej";
+        if(isCompleted()){
+            fuldført = "Ja";
+        }
+        return "Dato: " + formatter.format(getDate()) + " Pickup:" + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
     }
 }

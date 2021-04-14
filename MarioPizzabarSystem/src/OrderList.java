@@ -4,10 +4,11 @@ import java.util.List;
 public class OrderList {
     private static final List<Order> theOrderList = new ArrayList<>();
 
-    // Laver ny Ordre og tilføjer den til Ordrelisten.
+    // Laver ny Ordre og tilføjer den til Ordrelisten. Mangler at bruge setters til dato og tid.
     public static void newOrder(){
         Order newOrder = new Order();
         newOrder.addOrderLines();
+        newOrder.setDate();
         theOrderList.add(newOrder);
     }
 
