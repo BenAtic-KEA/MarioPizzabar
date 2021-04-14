@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class PizzaMenu {
 
-    private static ArrayList<Pizza> pizzaMenu;
+    private static ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
 
     public static void listOfPizzas()
@@ -16,7 +16,6 @@ public class PizzaMenu {
 
         File pizzaFile = new File("MarioPizzabarSystem/Pizzaer/Pizza.csv");
         Scanner pizzaFileReader = new Scanner(pizzaFile);
-        pizzaMenu = new ArrayList<Pizza>();
 
         pizzaFileReader.nextLine();
 
@@ -35,6 +34,12 @@ public class PizzaMenu {
         }
 
     }
+
+        public static Pizza getPizza(int pizzaNr){
+            return pizzaMenu.get(pizzaNr);
+
+        }
+
 
         public static void displayMenu()
         throws FileNotFoundException {
