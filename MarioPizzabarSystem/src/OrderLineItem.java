@@ -40,8 +40,7 @@ public class OrderLineItem {
 
     @Override
     public String toString() {
-        return "OrderLineItem" +
-                "subtotal = " + subtotal +
+        return  "subtotal = " + subtotal +
                 ", quantity = " + quantity +
                 ", pizza = " + pizza;
     }
