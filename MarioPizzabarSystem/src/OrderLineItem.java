@@ -37,6 +37,11 @@ public class OrderLineItem {
     public Pizza getPizza() {
         return pizza;
     }
+
+    @Override
+    public String toString(){
+        return "";
+    }
 }
 
 
