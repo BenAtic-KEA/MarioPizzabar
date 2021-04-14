@@ -45,5 +45,10 @@ public class Pizza {
             this.price = newPrice;
 
         }
+
+        @Override
+        public String toString(){
+            return nr + "" + name + "" + ingredients + "" + price;
+        }
     }
 
