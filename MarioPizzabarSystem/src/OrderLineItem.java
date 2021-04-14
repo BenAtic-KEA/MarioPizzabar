@@ -39,8 +39,12 @@ public class OrderLineItem {
     }
 
     @Override
-    public String toString(){
-        return "";
+    public String toString() {
+        return "OrderLineItem" +
+                "subtotal = " + subtotal +
+                ", quantity = " + quantity +
+                ", pizza = " + pizza +
+                ;
     }
 }
 
