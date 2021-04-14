@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class Order {
     private double total;
     private Date date;
     private Date pickUpTime;
     private boolean completed;
-    private List<OrderLineItem> orderLineItems = new ArrayList<OrderLineItem>();
+    private final List<OrderLineItem> orderLineItems = new ArrayList<>();
 
     public Order() {
     }
