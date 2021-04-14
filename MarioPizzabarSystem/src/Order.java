@@ -46,7 +46,7 @@ public class Order {
         this.completed = completed;
     }
 
-    public String orderlinesToString(){
+    public String orderLinesToString(){
         String orderLines = "";
         for (int i = 0; i<orderLineItems.size(); i++){
             orderLines += "\n" + orderLineItems.get(i);
@@ -56,6 +56,6 @@ public class Order {
 
     @Override
     public String toString(){
-        return ""+ date + " " + pickUpTime + " " + completed + orderlinesToString();
+        return ""+ date + " " + pickUpTime + " " + completed + orderLinesToString();
     }
 }
