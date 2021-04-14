@@ -41,7 +41,7 @@ public class PizzaMenu {
         }
 
 
-        public static void displayMenu()
+       /* public static void displayMenu()
         throws FileNotFoundException {
 
         while(int i = 0; i < pizzaMenu.size(); i++){
@@ -49,6 +49,6 @@ public class PizzaMenu {
                 System.out.println(pizzaMenu.get(i));
             }
         }
-
+*/
 }
 
