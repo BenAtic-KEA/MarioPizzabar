@@ -36,6 +36,7 @@ public class PizzaMenu {
 
             // gemmer objectet i min ArrayList pizzaMenu og fortsætter mit while Loop
             pizzaMenu.add(tempPizza);
+
         }
 
     }
