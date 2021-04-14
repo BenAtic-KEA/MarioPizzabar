@@ -11,7 +11,7 @@ public class OrderLineItem {
 
         // Indlæs pizza nummer.
         System.out.print("Indtast nr.");
-        int pizzanumber = input.nextInt();
+        int pizzanumber = input.nextInt() - 1;
 
         // Indlæs antal.
         System.out.print("Indtast antal ");
