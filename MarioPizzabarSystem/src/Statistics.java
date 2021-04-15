@@ -5,12 +5,18 @@ public class Statistics {
     public static int numberOfOrderedPizzas(){
 
         int numberOfPizzas = 0;
+        int orderListCount = OrderList.getTheOrderList().size();
 
-        for(int i = 0; i < OrderList.getTheOrderList().size(); i++){
-                for (int j = 0; j < OrderList.getTheOrderList().get(i).getOrderLineItems().size(); j++)
+        for(int i = 0; i < orderListCount; i++){
+            int orderLineCount = OrderList.getTheOrderList().get(i).getOrderLineItems().size();
 
-                    numberOfPizzas += OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
+                for (int j = 0; j < orderLineCount; j++) {
 
+                    int orderLineQuantity = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
+
+                    numberOfPizzas += orderLineQuantity;
+
+                }
         }
         return numberOfPizzas;
 
