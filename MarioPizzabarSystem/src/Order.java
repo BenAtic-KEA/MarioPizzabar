@@ -52,6 +52,21 @@ public class Order {
             }
         }
     }
+    //metode til at tilføje en ny ordrelinje i menuen
+    public void addOrderLine() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tilføj ny ordrelinje? y/n");
+        if (sc.next().charAt(0) == 'y') {
+            addOrderLines();
+        }
+        else {
+            removeOrderLine(OrderLineItemID);
+        }
+    }
+
+    public void removeOrderLine(){
+
+    }
 
     // Beregner totalen ud fra de individuelle linjers subtotaler.
     private void setTotal(){

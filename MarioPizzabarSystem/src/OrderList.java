@@ -12,6 +12,10 @@ public class OrderList {
         theOrderList.add(newOrder);
     }
 
+    public static void editOrderLine(int orderID){
+        System.out.println(theOrderList.get(orderID - 1));
+    }
+
     // Getter til de individuelle ordrer i Arraylisten.
     public static Order getOrder(int orderNr){
         return theOrderList.get(orderNr);
