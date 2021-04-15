@@ -45,10 +45,10 @@ public class Pizza {
             this.price = newPrice;
 
         }
-        //Overiding tostring
+        //Overriding tostring
         @Override
         public String toString(){
-            return nr + "" + name + "" + ingredients + "" + price;
+            return nr + " " + name + " " + ingredients + " " + price;
         }
     }
 
