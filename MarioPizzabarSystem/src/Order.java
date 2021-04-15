@@ -93,6 +93,10 @@ public class Order {
         this.completed = completed;
     }
 
+    public List<OrderLineItem> getOrderLineItems() {
+        return orderLineItems;
+    }
+
     // Loop der pakker Arraylisten ud og laver en samlet string med newlines for hvert objekt. Bruger OrderLineItem's toString().
     public String orderLinesToString(){
         String orderLines = "";

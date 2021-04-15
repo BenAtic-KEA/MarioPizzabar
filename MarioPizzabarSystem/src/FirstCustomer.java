@@ -9,5 +9,11 @@ public class FirstCustomer {
         OrderList.newOrder();
         // printer ordren med toString
         System.out.println(OrderList.getOrder(0));
+
+        PizzaMenu.displayMenu();
+
+
+        System.out.println(Statistics.numberOfOrderedPizzas());
+
     }
 }

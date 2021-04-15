@@ -21,4 +21,8 @@ public class OrderList {
     public static Order getOrder(int orderNr){
         return theOrderList.get(orderNr);
     }
+
+    public static List<Order> getTheOrderList() {
+        return theOrderList;
+    }
 }
