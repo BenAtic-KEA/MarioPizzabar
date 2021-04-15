@@ -9,6 +9,7 @@ public class OrderList {
         Order newOrder = new Order();
         newOrder.addOrderLines();
         newOrder.setDate();
+        newOrder.addPickUpTime();
         theOrderList.add(newOrder);
     }
 

@@ -47,7 +47,12 @@ public class Order {
                 setTotal();
             }
         }
-        sc.nextLine();
+        sc.close();
+    }
+
+    public void addPickUpTime(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tilføj afhentningstid: ");
         setPickUpTime(sc.nextLine());
         sc.close();
     }
@@ -90,6 +95,6 @@ public class Order {
         if(isCompleted()){
             fuldført = "Ja";
         }
-        return "Dato: " + formatter.format(getDate()) + " Pickup:" + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
+        return "Dato: " + formatter.format(getDate()) + " Pickup: " + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
     }
 }
