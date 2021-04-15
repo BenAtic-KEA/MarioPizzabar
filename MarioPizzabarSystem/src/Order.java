@@ -7,13 +7,9 @@ import java.util.Scanner;
 public class Order {
     private double total;
     private Date date;
-    private PickupTime pickUpTime;
+    private String pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
-
-    // Default constructor (dobbelt konfekt)
-    public Order() {
-    }
 
     // Getters til attributes
     public double getTotal(){
@@ -24,7 +20,7 @@ public class Order {
         return date;
     }
 
-     public PickupTime getPickUpTime(){
+    public String getPickUpTime(){
         return pickUpTime;
      }
 
@@ -51,6 +47,9 @@ public class Order {
                 setTotal();
             }
         }
+        sc.nextLine();
+        setPickUpTime(sc.nextLine());
+        sc.close();
     }
 
     // Beregner totalen ud fra de individuelle linjers subtotaler.
@@ -66,7 +65,7 @@ public class Order {
     }
 
     // Temp setters skal måske fjernes senere.
-    public void setPickUpTime(PickupTime pickUpTime) {
+    public void setPickUpTime(String pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
