@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -47,14 +46,12 @@ public class PizzaMenu {
         }
 
 
-       /* public static void displayMenu()
-        throws FileNotFoundException {
+       public static void displayMenu() {
 
-        while(int i = 0; i < pizzaMenu.size(); i++){
+        for(int i = 0; i < pizzaMenu.size(); i++){
 
                 System.out.println(pizzaMenu.get(i));
             }
         }
-*/
 }
 
