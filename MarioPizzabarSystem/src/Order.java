@@ -7,13 +7,9 @@ import java.util.Scanner;
 public class Order {
     private double total;
     private Date date;
-    private PickupTime pickUpTime;
+    private String pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
-
-    // Default constructor (dobbelt konfekt)
-    public Order() {
-    }
 
     // Getters til attributes
     public double getTotal(){
@@ -24,7 +20,7 @@ public class Order {
         return date;
     }
 
-     public PickupTime getPickUpTime(){
+    public String getPickUpTime(){
         return pickUpTime;
      }
 
@@ -51,6 +47,14 @@ public class Order {
                 setTotal();
             }
         }
+        sc.close();
+    }
+
+    public void addPickUpTime(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tilføj afhentningstid: ");
+        setPickUpTime(sc.nextLine());
+        sc.close();
     }
     //metode til at tilføje en ny ordrelinje i menuen
     public void addOrderLine() {
@@ -81,7 +85,7 @@ public class Order {
     }
 
     // Temp setters skal måske fjernes senere.
-    public void setPickUpTime(PickupTime pickUpTime) {
+    public void setPickUpTime(String pickUpTime) {
         this.pickUpTime = pickUpTime;
     }
 
@@ -106,6 +110,6 @@ public class Order {
         if(isCompleted()){
             fuldført = "Ja";
         }
-        return "Dato: " + formatter.format(getDate()) + " Pickup:" + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
+        return "Dato: " + formatter.format(getDate()) + " Pickup: " + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
     }
 }
