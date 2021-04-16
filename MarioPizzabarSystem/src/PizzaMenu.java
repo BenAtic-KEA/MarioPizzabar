@@ -45,6 +45,10 @@ public class PizzaMenu {
 
         }
 
+        public static ArrayList<Pizza> getPizzaMenu(){
+            return pizzaMenu;
+        }
+
 
        public static void displayMenu() {
 
