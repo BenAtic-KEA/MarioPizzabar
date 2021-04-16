@@ -21,6 +21,10 @@ public class OrderLineItem {
         Pizza pizza = PizzaMenu.getPizza(pizzanumber);
 
         // Beregn subtotal og overfør værdierne til felterne.
+        setAttributes(quantity,pizza);
+    }
+
+    public void setAttributes(int quantity, Pizza pizza){
         this.subtotal = pizza.getPrice() * quantity;
         this.quantity = quantity;
         this.pizza = pizza;
