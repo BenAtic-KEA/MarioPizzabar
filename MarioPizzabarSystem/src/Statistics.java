@@ -8,7 +8,7 @@ public class Statistics {
         for (int i = 0; i < orderListCount; i++) {
             int orderLineCount = OrderList.getTheOrderList().get(i).getOrderLineItems().size();
 
-            if(!OrderList.getTheOrderList().get(i).isCompleted()){
+            //if(!OrderList.getTheOrderList().get(i).isCompleted()){
                 for (int j = 0; j < orderLineCount; j++) {
 
                 int orderLineQuantity = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
@@ -16,12 +16,12 @@ public class Statistics {
                 numberOfPizzas += orderLineQuantity;
                 }
             }
-        }
+        //}
         return numberOfPizzas;
 
     }
 
-    public static int[] numberOfEachPizza() {
+    private static int[] numberOfEachPizza() {
 
         int[] pizzaCount = new int[PizzaMenu.getPizzaMenu().size()];
 
@@ -32,7 +32,7 @@ public class Statistics {
             int orderLineCount = OrderList.getTheOrderList().get(i).getOrderLineItems().size();
 
             for (int j = 0; j < orderLineCount; j++) {
-                int pizzaNr = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getPizza().getNr();
+                int pizzaNr = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getPizza().getNr() - 1;
                 int orderLineQuantity = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
 
                 pizzaCount[pizzaNr] += orderLineQuantity;
@@ -47,10 +47,10 @@ public class Statistics {
     public static void showNumberOfEachPizza(){
         int[] eachPizzaCount = numberOfEachPizza();
 
-        System.out.println("PizzaNr. ----      Name      ----     Amount sold");
         for (int i = 0; i < eachPizzaCount.length; i++){
             String pizzaName = PizzaMenu.getPizza(i).getName();
-            System.out.println(i +" ----" + pizzaName +" ---- "+ eachPizzaCount[i]);
+            int pizzaMenuNr = i + 1;
+            System.out.println("Pizzanr.: " + pizzaMenuNr + " " + pizzaName + " Amount sold: " + eachPizzaCount[i]);
 
 
 
