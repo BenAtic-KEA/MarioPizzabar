@@ -6,20 +6,20 @@ public class Statistics {
     public static int numberOfOrderedPizzas() {
 
         int numberOfPizzas = 0;
-        List<Order> orderListArray = OrderList.getTheOrderList();
+        List<Order> eachOrderArray = OrderList.getTheOrderList();
 
-        for (int i = 0; i < orderListArray.size(); i++) {
+        for (Order order : eachOrderArray) {
 
-            List<OrderLineItem> orderLineArray = orderListArray.get(i).getOrderLineItems();
+            List<OrderLineItem> eachOrderLineItemArray = order.getOrderLineItems();
 
-            //if(!orderListArray.get(i).isCompleted()){
-                for (int j = 0; j < orderLineArray.size(); j++) {
+            //if(!eachOrderArray.get(i).isCompleted()){
+            for (OrderLineItem orderLineItem : eachOrderLineItemArray) {
 
-                int orderLineQuantity = orderLineArray.get(j).getQuantity();
+                int orderLineQuantity = orderLineItem.getQuantity();
 
                 numberOfPizzas += orderLineQuantity;
-                }
             }
+        }
         //}
         return numberOfPizzas;
 
@@ -29,13 +29,13 @@ public class Statistics {
 
         int[] pizzaCount = new int[PizzaMenu.getPizzaMenu().size()];
 
-        List<Order> orderListArray = OrderList.getTheOrderList();
+        List<Order> eachOrderArray = OrderList.getTheOrderList();
 
-        for (Order order : orderListArray) {
+        for (Order order : eachOrderArray) {
 
-            List<OrderLineItem> orderLineCount = order.getOrderLineItems();
+            List<OrderLineItem> orderLineItemArray = order.getOrderLineItems();
 
-            for (OrderLineItem orderLineItem : orderLineCount) {
+            for (OrderLineItem orderLineItem : orderLineItemArray) {
 
                 int pizzaNr = orderLineItem.getPizza().getNr() - 1;
                 int orderLineQuantity = orderLineItem.getQuantity();
@@ -66,9 +66,9 @@ public class Statistics {
         List<Order> amountOfOrders = OrderList.getTheOrderList();
         double totalRevenue = .0;
 
-        for(int i = 0; i < amountOfOrders.size(); i++ ){
+        for (Order amountOfOrder : amountOfOrders) {
 
-            double currentRevenue = amountOfOrders.get(i).getTotal();
+            double currentRevenue = amountOfOrder.getTotal();
 
             totalRevenue += currentRevenue;
         }
