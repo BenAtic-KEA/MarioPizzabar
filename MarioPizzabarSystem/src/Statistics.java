@@ -1,39 +1,44 @@
+import java.util.List;
+
 public class Statistics {
+
 
     public static int numberOfOrderedPizzas() {
 
         int numberOfPizzas = 0;
-        int orderListCount = OrderList.getTheOrderList().size();
+        List<Order> orderListArray = OrderList.getTheOrderList();
 
-        for (int i = 0; i < orderListCount; i++) {
-            int orderLineCount = OrderList.getTheOrderList().get(i).getOrderLineItems().size();
+        for (int i = 0; i < orderListArray.size(); i++) {
 
-            if(!OrderList.getTheOrderList().get(i).isCompleted()){
-                for (int j = 0; j < orderLineCount; j++) {
+            List<OrderLineItem> orderLineArray = orderListArray.get(i).getOrderLineItems();
 
-                int orderLineQuantity = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
+            //if(!orderListArray.get(i).isCompleted()){
+                for (int j = 0; j < orderLineArray.size(); j++) {
+
+                int orderLineQuantity = orderLineArray.get(j).getQuantity();
 
                 numberOfPizzas += orderLineQuantity;
                 }
             }
-        }
+        //}
         return numberOfPizzas;
 
     }
 
-    public static int[] numberOfEachPizza() {
+    private static int[] numberOfEachPizza() {
 
         int[] pizzaCount = new int[PizzaMenu.getPizzaMenu().size()];
 
+        List<Order> orderListArray = OrderList.getTheOrderList();
 
-        int orderListCount = OrderList.getTheOrderList().size();
+        for (Order order : orderListArray) {
 
-        for (int i = 0; i < orderListCount; i++) {
-            int orderLineCount = OrderList.getTheOrderList().get(i).getOrderLineItems().size();
+            List<OrderLineItem> orderLineCount = order.getOrderLineItems();
 
-            for (int j = 0; j < orderLineCount; j++) {
-                int pizzaNr = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getPizza().getNr();
-                int orderLineQuantity = OrderList.getTheOrderList().get(i).getOrderLineItems().get(j).getQuantity();
+            for (OrderLineItem orderLineItem : orderLineCount) {
+
+                int pizzaNr = orderLineItem.getPizza().getNr() - 1;
+                int orderLineQuantity = orderLineItem.getQuantity();
 
                 pizzaCount[pizzaNr] += orderLineQuantity;
 
@@ -47,15 +52,33 @@ public class Statistics {
     public static void showNumberOfEachPizza(){
         int[] eachPizzaCount = numberOfEachPizza();
 
-        System.out.println("PizzaNr. ----      Name      ----     Amount sold");
         for (int i = 0; i < eachPizzaCount.length; i++){
             String pizzaName = PizzaMenu.getPizza(i).getName();
-            System.out.println(i +" ----" + pizzaName +" ---- "+ eachPizzaCount[i]);
-
-
+            int pizzaMenuNr = i + 1;
+            System.out.println("Pizzanr.: " + pizzaMenuNr + " " + pizzaName + " Amount sold: " + eachPizzaCount[i]);
 
         }
 
+    }
 
+    private static double totalRevenue(){
+
+        List<Order> amountOfOrders = OrderList.getTheOrderList();
+        double totalRevenue = .0;
+
+        for(int i = 0; i < amountOfOrders.size(); i++ ){
+
+            double currentRevenue = amountOfOrders.get(i).getTotal();
+
+            totalRevenue += currentRevenue;
+        }
+        return totalRevenue;
+    }
+
+    public static void showTotalRevenue(){
+
+        double revenue = totalRevenue();
+
+        System.out.println("Omsætningen for dagen: " + revenue + "kr");
     }
 }

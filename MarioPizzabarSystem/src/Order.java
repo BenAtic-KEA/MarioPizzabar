@@ -63,13 +63,17 @@ public class Order {
         if (sc.next().charAt(0) == 'y') {
             addOrderLines();
         }
-        else {
-            //removeOrderLine(OrderLineItemID);
+
         }
-    }
 
-    public void removeOrderLine(){
+    //metode til at fjerne en ordrelinje fra menuen
+    public void removeOrderLine() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("fjern ordrelinje? y/n");
+        if (sc.next().charAt(0) == 'y') {
+            removeOrderLine();
 
+        }
     }
 
     // Beregner totalen ud fra de individuelle linjers subtotaler.
