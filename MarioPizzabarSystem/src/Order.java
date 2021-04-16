@@ -66,7 +66,7 @@ public class Order {
 
         }
 
-
+    //metode til at fjerne en ordrelinje fra menuen
     public void removeOrderLine() {
         Scanner sc = new Scanner(System.in);
         System.out.println("fjern ordrelinje? y/n");
