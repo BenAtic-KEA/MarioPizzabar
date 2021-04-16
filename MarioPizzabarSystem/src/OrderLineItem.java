@@ -6,6 +6,17 @@ public class OrderLineItem {
     private int quantity;
     private Pizza pizza;
 
+    // Tom constructor
+    OrderLineItem(){}
+
+    // Overloadet constructor
+    OrderLineItem(Pizza pizza,int quantity){
+        this.pizza = pizza;
+        this.quantity = quantity;
+        subtotal = quantity * pizza.getPrice();
+    }
+
+    // metode til at få bruger input ved ordreoprettelse.
     public void enterFood() {
         Scanner input = new Scanner(System.in);
 
@@ -21,10 +32,6 @@ public class OrderLineItem {
         Pizza pizza = PizzaMenu.getPizza(pizzanumber);
 
         // Beregn subtotal og overfør værdierne til felterne.
-        setAttributes(quantity,pizza);
-    }
-
-    public void setAttributes(int quantity, Pizza pizza){
         this.subtotal = pizza.getPrice() * quantity;
         this.quantity = quantity;
         this.pizza = pizza;

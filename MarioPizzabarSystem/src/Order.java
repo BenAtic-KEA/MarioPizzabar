@@ -28,6 +28,10 @@ public class Order {
         return completed;
     }
 
+    public void loadOrderLine(Pizza pizza, int quantity){
+        orderLineItems.add(new OrderLineItem(pizza, quantity));
+    }
+
     // Metode til at lave Ordrelinjer, Laver et nyt ordelinjeobjekt, populerer det med attributes og tilføjer den til Arraylisten.
     public void createOrderLineItem(){
         OrderLineItem orderLine = new OrderLineItem();
@@ -86,6 +90,10 @@ public class Order {
 
     public void setDate() {
         date = new Date();
+    }
+
+    public void loadDate(int year, int month, int day){
+        date = new Date(year, month, day);
     }
 
     // Temp setters skal måske fjernes senere.
