@@ -57,8 +57,6 @@ public class Statistics {
             int pizzaMenuNr = i + 1;
             System.out.println("Pizzanr.: " + pizzaMenuNr + " " + pizzaName + " Amount sold: " + eachPizzaCount[i]);
 
-
-
         }
 
     }
