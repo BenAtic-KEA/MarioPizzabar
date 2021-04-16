@@ -47,15 +47,15 @@ public class Order {
                 setTotal();
             }
         }
-        sc.close();
     }
 
     public void addPickUpTime(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Tilføj afhentningstid: ");
         setPickUpTime(sc.nextLine());
-        sc.close();
     }
+
+
     //metode til at tilføje en ny ordrelinje i menuen
     public void addOrderLine() {
         Scanner sc = new Scanner(System.in);
@@ -64,7 +64,7 @@ public class Order {
             addOrderLines();
         }
         else {
-            removeOrderLine(OrderLineItemID);
+            //removeOrderLine(OrderLineItemID);
         }
     }
 

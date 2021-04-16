@@ -10,7 +10,7 @@ public class OrderList {
         newOrder.addOrderLines();
         newOrder.setDate();
         newOrder.addPickUpTime();
-        theOrderList.add(newOrder);
+        setOrder(newOrder);
     }
 
     public static void editOrderLine(int orderID){
@@ -24,5 +24,9 @@ public class OrderList {
 
     public static List<Order> getTheOrderList() {
         return theOrderList;
+    }
+
+    public static void setOrder(Order order){
+        theOrderList.add(order);
     }
 }
