@@ -9,7 +9,7 @@ public class OrderLineItem {
     // Tom constructor
     OrderLineItem(){}
 
-    // Overloadet constructor
+    // Fuld constructor
     OrderLineItem(Pizza pizza,int quantity){
         this.pizza = pizza;
         this.quantity = quantity;

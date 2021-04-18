@@ -11,6 +11,21 @@ public class Order {
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
 
+    // Tom constructor
+    Order(){}
+
+    // Fuld constructor
+    Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity){
+        loadDate(date[2]-1900, date[1]-1, date[0]);
+        this.pickUpTime = pickupTime;
+        this.completed = completed;
+        for (int i = 0 ; i < pizzas.length ; i++) {
+            loadOrderLine(PizzaMenu.getPizza(pizzas[i]-1), quantity[i]);
+        }
+        setTotal();
+    }
+
+
     // Getters til attributes
     public double getTotal(){
         return total;
@@ -81,7 +96,7 @@ public class Order {
     }
 
     // Beregner totalen ud fra de individuelle linjers subtotaler.
-    private void setTotal(){
+    public void setTotal(){
         for (OrderLineItem item :
                 orderLineItems) {
             total+=item.getSubtotal();
@@ -118,14 +133,19 @@ public class Order {
         return orderLines;
     }
 
+    // læser en date og returnerer en formateret string med samme værdier.
+    public String formatDateToString(Date date){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.format(date);
+    }
+
     // String repræsentation af Order objektet.
     @Override
     public String toString(){
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String fuldført = "Nej";
         if(isCompleted()){
             fuldført = "Ja";
         }
-        return "Dato: " + formatter.format(getDate()) + " Pickup: " + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
+        return "Dato: " + formatDateToString(getDate()) + " Pickup: " + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
     }
 }
