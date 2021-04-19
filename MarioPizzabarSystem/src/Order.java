@@ -89,6 +89,7 @@ public class Order {
     public void removeOrderLine() {
         Scanner sc = new Scanner(System.in);
         System.out.println("fjern ordrelinje? y/n");
+        orderLineItems.remove(getOrderLineItems().size()-1);
         if (sc.next().charAt(0) == 'y') {
             removeOrderLine();
 
