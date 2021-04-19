@@ -43,7 +43,7 @@ public class PizzaMenu {
     }
         // getPizza bruges til at hente 1 specifikt objekt i pizzaMenu.
         public static Pizza getPizza(int pizzaNr){
-            return pizzaMenu.get(pizzaNr);
+            return pizzaMenu.get(pizzaNr); //TODO skal vi tilføje -1 for at undgå det i controlleren?
 
         }
 
@@ -52,7 +52,7 @@ public class PizzaMenu {
         }
 
 
-       public static void displayMenu() {
+       public static void displayMenu() { //TODO burde denne display metoden rykkes til controller også kalde getPizzaMenu()?
 
         for(int i = 0; i < pizzaMenu.size(); i++){
 
