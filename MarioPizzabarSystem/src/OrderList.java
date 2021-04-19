@@ -10,6 +10,7 @@ public class OrderList {
         newOrder.addOrderLines();
         newOrder.setDate();
         newOrder.addPickUpTime();
+        newOrder.setOrderID(theOrderList.size() + 1);
         setOrder(newOrder);
     }
 

@@ -14,15 +14,15 @@ public class Statistics {
 
             List<OrderLineItem> eachOrderLineItemArray = order.getOrderLineItems();
 
-            //if(!eachOrderArray.get(i).isCompleted()){
-            for (OrderLineItem orderLineItem : eachOrderLineItemArray) {
+            if (order.isCompleted()) {
+                for (OrderLineItem orderLineItem : eachOrderLineItemArray) {
 
-                int orderLineQuantity = orderLineItem.getQuantity();
+                    int orderLineQuantity = orderLineItem.getQuantity();
 
-                numberOfPizzas += orderLineQuantity;
+                    numberOfPizzas += orderLineQuantity;
+                }
             }
         }
-        //}
         return numberOfPizzas;
 
     }
@@ -36,17 +36,17 @@ public class Statistics {
         for (Order order : eachOrderArray) {
 
             List<OrderLineItem> orderLineItemArray = order.getOrderLineItems();
-            //if(!eachOrderArray.get(i).isCompleted()){
-            for (OrderLineItem orderLineItem : orderLineItemArray) {
+            if (order.isCompleted()) {
+                for (OrderLineItem orderLineItem : orderLineItemArray) {
 
-                int pizzaNr = orderLineItem.getPizza().getNr() - 1;
-                int orderLineQuantity = orderLineItem.getQuantity();
+                    int pizzaNr = orderLineItem.getPizza().getNr() - 1;
+                    int orderLineQuantity = orderLineItem.getQuantity();
 
-                pizzaCount[pizzaNr] += orderLineQuantity;
+                    pizzaCount[pizzaNr] += orderLineQuantity;
 
+                }
             }
         }
-        //}
         return pizzaCount;
 
     }

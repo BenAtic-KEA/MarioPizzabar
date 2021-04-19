@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Order {
+
     private double total;
     private Date date;
+    private int orderID;
     private String pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
@@ -15,10 +17,11 @@ public class Order {
     Order(){}
 
     // Fuld constructor
-    Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity){
+    Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity, int orderID){
         loadDate(date[2]-1900, date[1]-1, date[0]);
         this.pickUpTime = pickupTime;
         this.completed = completed;
+        this.orderID = orderID;
         for (int i = 0 ; i < pizzas.length ; i++) {
             loadOrderLine(PizzaMenu.getPizza(pizzas[i]-1), quantity[i]);
         }
@@ -125,6 +128,14 @@ public class Order {
         return orderLineItems;
     }
 
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }
+
     // Loop der pakker Arraylisten ud og laver en samlet string med newlines for hvert objekt. Bruger OrderLineItem's toString().
     public String orderLinesToString(){
         String orderLines = "";
@@ -147,6 +158,7 @@ public class Order {
         if(isCompleted()){
             fuldført = "Ja";
         }
-        return "Dato: " + formatDateToString(getDate()) + " Pickup: " + getPickUpTime() + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført;
+        return "OrdreID: #" + orderID + " " + "Dato: " + formatDateToString(getDate()) + " Pickup: " + getPickUpTime()
+                + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført + "\n";
     }
 }
