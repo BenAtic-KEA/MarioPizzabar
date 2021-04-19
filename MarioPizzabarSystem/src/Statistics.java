@@ -2,7 +2,9 @@ import java.util.List;
 
 public class Statistics {
 
-
+    /**
+     * Tæller antallet af pizzaer
+     */
     public static int numberOfOrderedPizzas() {
 
         int numberOfPizzas = 0;
@@ -49,6 +51,9 @@ public class Statistics {
 
     }
 
+    /**
+     * printer antallet af pizzaer
+     */
     public static void showNumberOfEachPizza(){
         int[] eachPizzaCount = numberOfEachPizza();
 
@@ -75,10 +80,30 @@ public class Statistics {
         return totalRevenue;
     }
 
+    /**
+     * printer omsætning
+     */
     public static void showTotalRevenue(){
 
         double revenue = totalRevenue();
 
         System.out.println("Omsætningen for dagen: " + revenue + "kr");
+    }
+
+    /**
+     * antallet af ordre på ordrelisten
+     * @return int
+     */
+    public static int numberOfOrders(){
+
+        List<Order> amountOfOrders = OrderList.getTheOrderList();
+        int orderCount = 0;
+
+
+        for(Order amountOfOrder : amountOfOrders){
+
+            orderCount++;
+        }
+        return orderCount;
     }
 }

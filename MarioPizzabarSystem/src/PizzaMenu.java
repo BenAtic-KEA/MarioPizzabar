@@ -8,7 +8,9 @@ public class PizzaMenu {
 
     private static ArrayList<Pizza> pizzaMenu = new ArrayList<>();
 
-
+    /**
+     *  indlæser pizzaer fra fil til pizzaMenu
+     */
     public static void listOfPizzas()
             throws FileNotFoundException {
 
