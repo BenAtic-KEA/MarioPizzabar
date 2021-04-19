@@ -36,7 +36,7 @@ public class Statistics {
         for (Order order : eachOrderArray) {
 
             List<OrderLineItem> orderLineItemArray = order.getOrderLineItems();
-
+            //if(!eachOrderArray.get(i).isCompleted()){
             for (OrderLineItem orderLineItem : orderLineItemArray) {
 
                 int pizzaNr = orderLineItem.getPizza().getNr() - 1;
@@ -46,8 +46,8 @@ public class Statistics {
 
             }
         }
+        //}
         return pizzaCount;
-
 
     }
 
