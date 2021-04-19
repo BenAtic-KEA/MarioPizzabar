@@ -9,12 +9,14 @@ public class Statistics {
 
         int numberOfPizzas = 0;
         List<Order> eachOrderArray = OrderList.getTheOrderList();
-
+        // Laver et loop for hver ordre i OrderList
         for (Order order : eachOrderArray) {
 
             List<OrderLineItem> eachOrderLineItemArray = order.getOrderLineItems();
 
+            // kontrollere om ordren er fuldført.
             if (order.isCompleted()) {
+                // laver et loop for hver OrderLineItem.
                 for (OrderLineItem orderLineItem : eachOrderLineItemArray) {
 
                     int orderLineQuantity = orderLineItem.getQuantity();
@@ -29,6 +31,7 @@ public class Statistics {
 
     private static int[] numberOfEachPizza() {
 
+        // et Array som holder styr på hvor mange af en specifik pizza der er blevet lavet.
         int[] pizzaCount = new int[PizzaMenu.getPizzaMenu().size()];
 
         List<Order> eachOrderArray = OrderList.getTheOrderList();
@@ -36,12 +39,14 @@ public class Statistics {
         for (Order order : eachOrderArray) {
 
             List<OrderLineItem> orderLineItemArray = order.getOrderLineItems();
+
             if (order.isCompleted()) {
+
                 for (OrderLineItem orderLineItem : orderLineItemArray) {
 
                     int pizzaNr = orderLineItem.getPizza().getNr() - 1;
                     int orderLineQuantity = orderLineItem.getQuantity();
-
+                    // lægger mængden til den pizza der er lavet i pizzaCount[]
                     pizzaCount[pizzaNr] += orderLineQuantity;
 
                 }
