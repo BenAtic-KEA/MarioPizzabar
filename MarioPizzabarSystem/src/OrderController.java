@@ -7,11 +7,10 @@ public class OrderController {
         OrderList.newOrder();
 
         // "newOrder" returnerer ikke det nyoprettede ordre-objekt, så derfor henter vi det fra "theOrderList" - samtidig med at vi beregner ordre ID'et.
-        // Alternativ implementering: Order newOrder = OrderList.newOrder();
         Order newOrder = OrderList.getOrder(OrderList.getTheOrderList().size() - 1);
 
         // Gem den nyoprettede ordre med det samme, så Alfonzo ikke skal huske at gøre det løbende.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/OrderListSaveTest.csv");
+        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
         // Udskriv ordren, så Alfonzo kan se den.
         System.out.println("Created order: " + newOrder.toString());
     }
@@ -20,7 +19,7 @@ public class OrderController {
         System.out.println("To edit order, type order ID: ");
         int orderID = InputController.getOrderId();
 
-        Order orderToEdit = OrderList.getOrder(orderID);
+        Order orderToEdit = OrderList.getOrder(orderID - 1);
         System.out.println("Editing order: " + orderToEdit.getOrderID());
         System.out.println("------------------------");
         System.out.println("[1] - Add order line. ");
@@ -34,7 +33,7 @@ public class OrderController {
         }
 
         // Gem den opdaterede ordre.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/OrderListSaveTest.csv");
+        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
     }
 
     public static void completeOrder() throws FileNotFoundException {
@@ -43,7 +42,7 @@ public class OrderController {
         Order orderToComplete = OrderList.getOrder(orderID - 1); // Jeg korrigerer ofte for -1, kan vi lægge det ind i klassen?
         orderToComplete.setCompleted(true);
         // Gem den opdaterede ordre.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/OrderListSaveTest.csv");
+        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
 
     }
 
