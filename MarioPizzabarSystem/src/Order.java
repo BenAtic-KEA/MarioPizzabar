@@ -92,12 +92,18 @@ public class Order {
     public void removeOrderLine() {
         Scanner sc = new Scanner(System.in);
         System.out.println("fjern ordrelinje? y/n");
-        orderLineItems.remove(getOrderLineItems().size()-1);
         if (sc.next().charAt(0) == 'y') {
-            removeOrderLine();
-
+            System.out.println("Hvilket ordreID skal fjernes?");
+            int orderID = sc.nextInt();
+        if (orderLineItems.contains(orderID)) {
+            orderLineItems.remove(orderID);
+            System.out.println("Pizza id: " + orderID + "er blevet fjernet");
+        } else {
+            System.out.println("dette ordreID eksisterer ikke");
+        }
         }
     }
+
 
     // Beregner totalen ud fra de individuelle linjers subtotaler.
     public void setTotal(){
