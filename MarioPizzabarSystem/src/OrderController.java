@@ -18,7 +18,7 @@ public class OrderController {
 
     public static void editOrder() throws FileNotFoundException {
         System.out.println("To edit order, type order ID: ");
-        int orderID = inputController.getOrderId();
+        int orderID = InputController.getOrderId();
 
         Order orderToEdit = OrderList.getOrder(orderID);
         System.out.println("Editing order: " + orderToEdit.getOrderID());
@@ -26,7 +26,7 @@ public class OrderController {
         System.out.println("[1] - Add order line. ");
         System.out.println("[2] - Remove most recent order line. ");
 
-        int subMenuChoice = inputController.getMenuChoice(1, 2);
+        int subMenuChoice = InputController.getMenuChoice(1, 2);
         if (subMenuChoice == 1) {
             orderToEdit.addOrderLine();
         } else if (subMenuChoice == 2) {
@@ -39,11 +39,12 @@ public class OrderController {
 
     public static void completeOrder() throws FileNotFoundException {
         System.out.println("To complete order, type order ID: ");
-        int orderID = inputController.getOrderId();
+        int orderID = InputController.getOrderId();
         Order orderToComplete = OrderList.getOrder(orderID - 1); // Jeg korrigerer ofte for -1, kan vi lægge det ind i klassen?
         orderToComplete.setCompleted(true);
         // Gem den opdaterede ordre.
         SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/OrderListSaveTest.csv");
+
     }
 
     public static void showActiveOrders() {

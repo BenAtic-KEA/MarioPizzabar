@@ -10,11 +10,12 @@ public class ProgramMenu {
         SaveLoad.loadOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
 
         // Menuen vises kun første gang programmet starter.
-        displayMenu();
+
 
         // Start program-loop.
         while (true) {
-            int menuChoice = inputController.getMenuChoice();
+            displayMenu();
+            int menuChoice = InputController.getMenuChoice();
 
             // Opret ny ordre.
             if (menuChoice == 1) {
@@ -43,7 +44,7 @@ public class ProgramMenu {
             else if (menuChoice == 7) {
                 System.out.println("[1] - Show revenue. ");
                 System.out.println("[2] - Show pizza statistics. ");
-                int subMenuChoice = inputController.getMenuChoice(1, 2);
+                int subMenuChoice = InputController.getMenuChoice(1, 2);
 
                 if (subMenuChoice == 1) {
                     Statistics.showTotalRevenue(); // TODO "showTotalRevenue" tæller uafsluttede ordrer.

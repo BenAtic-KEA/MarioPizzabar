@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class SaveLoad {
 
-    // testmetode
-    public static void main(String[] args) throws FileNotFoundException{
+    /* testmetode
+    //public static void main(String[] args) throws FileNotFoundException{
         PizzaMenu.listOfPizzas();
         loadOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
         saveOrderList("MarioPizzabarSystem/OrderListSaves/OrderListSaveTest.csv");
-    }
+    //}*/
 
     // Looper over Ordrerlisten med iterator og gemmer alle ordrene som Strings i den specificerede pathToFile
     public static void saveOrderList(String pathToFile) throws FileNotFoundException{
@@ -80,7 +80,7 @@ public class SaveLoad {
 
             // Tester om ordren mangler data og tilføjer ordren til theOrderList.
             if (pizzaIDs.size() == quantities.size()){
-                OrderList.setOrder(new Order(dateInt,pickUpTime, completed, convertToIntArray(pizzaIDs), convertToIntArray(quantities)));
+                OrderList.setOrder(new Order(dateInt,pickUpTime, completed, convertToIntArray(pizzaIDs), convertToIntArray(quantities), 1));
             }else{
                 System.out.println("This Order was corrupted - skipping.");
             }

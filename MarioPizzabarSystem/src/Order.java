@@ -95,12 +95,12 @@ public class Order {
         if (sc.next().charAt(0) == 'y') {
             System.out.println("Hvilket ordreID skal fjernes?");
             int orderID = sc.nextInt();
-        if (orderLineItems.contains(orderID)) {
-            orderLineItems.remove(orderID);
-            System.out.println("Pizza id: " + orderID + "er blevet fjernet");
-        } else {
-            System.out.println("dette ordreID eksisterer ikke");
-        }
+            if (orderLineItems.contains(orderID)) {
+                orderLineItems.remove(orderID);
+                System.out.println("Pizza id: " + orderID + "er blevet fjernet");
+                } else {
+                    System.out.println("dette ordreID eksisterer ikke");
+            }
         }
     }
 
