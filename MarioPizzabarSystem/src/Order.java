@@ -91,17 +91,19 @@ public class Order {
     //metode til at fjerne en ordrelinje fra menuen
     public void removeOrderLine() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("fjern ordrelinje? y/n");
-        if (sc.next().charAt(0) == 'y') {
-            System.out.println("Hvilket ordreID skal fjernes?");
-            int orderID = sc.nextInt();
-            if (orderLineItems.contains(orderID)) {
-                orderLineItems.remove(orderID);
-                System.out.println("Pizza id: " + orderID + "er blevet fjernet");
-                } else {
-                    System.out.println("dette ordreID eksisterer ikke");
-            }
+        System.out.println("Hvilken ordrelinje skal fjernes?");
+
+        for(int i = 0; i < orderLineItems.size(); i++){
+            System.out.println((i + 1) + " " + orderLineItems.get(i));
         }
+        int orderID = sc.nextInt();
+        if (orderID - 1 < orderLineItems.size()) {
+            orderLineItems.remove(orderID - 1);
+            System.out.println("Pizza id: " + orderID + "er blevet fjernet");
+        } else {
+            System.out.println("dette ordreID eksisterer ikke");
+        }
+
     }
 
 
