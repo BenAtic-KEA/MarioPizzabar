@@ -4,13 +4,11 @@ import java.util.List;
 public class OrderController {
     public static void createOrder() throws FileNotFoundException {
         // Opret ny ordre via "OrderList", der står for at initialisere ordre-objektet og tilføje det til "theOrderList" (den interne ArrayList af ordrer).
-        OrderList.newOrder();
-
-        // "newOrder" returnerer ikke det nyoprettede ordre-objekt, så derfor henter vi det fra "theOrderList" - samtidig med at vi beregner ordre ID'et.
-        Order newOrder = OrderList.getOrder(OrderList.getTheOrderList().size() - 1);
+        Order newOrder = OrderList.newOrder();
 
         // Gem den nyoprettede ordre med det samme, så Alfonzo ikke skal huske at gøre det løbende.
         SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
+
         // Udskriv ordren, så Alfonzo kan se den.
         System.out.println("Created order: " + newOrder.toString());
     }
@@ -19,7 +17,7 @@ public class OrderController {
         System.out.println("To edit order, type order ID: ");
         int orderID = InputController.getOrderId();
 
-        Order orderToEdit = OrderList.getOrder(orderID - 1);
+        Order orderToEdit = OrderList.getOrder(orderID);
         System.out.println("Editing order: " + orderToEdit.getOrderID());
         System.out.println("------------------------");
         System.out.println("[1] - Add order line. ");
@@ -39,7 +37,7 @@ public class OrderController {
     public static void completeOrder() throws FileNotFoundException {
         System.out.println("To complete order, type order ID: ");
         int orderID = InputController.getOrderId();
-        Order orderToComplete = OrderList.getOrder(orderID - 1); // Jeg korrigerer ofte for -1, kan vi lægge det ind i klassen?
+        Order orderToComplete = OrderList.getOrder(orderID);
         orderToComplete.setCompleted(true);
         // Gem den opdaterede ordre.
         SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");

@@ -9,9 +9,6 @@ public class ProgramMenu {
         // Indlæs ordrehistorik fra CSV-fil.
         SaveLoad.loadOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
 
-        // Menuen vises kun første gang programmet starter.
-
-
         // Start program-loop.
         while (true) {
             displayMenu();
