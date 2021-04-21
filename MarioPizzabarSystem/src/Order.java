@@ -9,7 +9,7 @@ public class Order {
     private double total;
     private Date date;
     private int orderID;
-    private String pickUpTime;
+    private PickupTime pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
 
@@ -19,7 +19,7 @@ public class Order {
     // Fuld constructor
     Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity, int orderID){
         loadDate(date[2]-1900, date[1]-1, date[0]);
-        this.pickUpTime = pickupTime;
+        this.pickUpTime = new PickupTime(pickupTime);
         this.completed = completed;
         this.orderID = orderID;
         for (int i = 0 ; i < pizzas.length ; i++) {
@@ -38,7 +38,7 @@ public class Order {
         return date;
     }
 
-    public String getPickUpTime(){
+    public PickupTime getPickUpTime(){
         return pickUpTime;
      }
 
@@ -73,8 +73,18 @@ public class Order {
 
     public void addPickUpTime(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Tilføj afhentningstid: ");
-        setPickUpTime(sc.nextLine());
+        System.out.println("Tilføj afhentningstid: (timer:minutter)");
+        String verifiedInput = null;
+        while(verifiedInput == null){
+            String input = sc.nextLine();
+            if (input.length() == 5 && input.charAt(2) == ':'){
+                verifiedInput = input;
+            }
+            else {
+                System.out.println("Fejl i indtastning, prøv igen. (timer:minutter)");
+            }
+        }
+        setPickUpTime(verifiedInput);
     }
 
 
@@ -85,8 +95,7 @@ public class Order {
         if (sc.next().charAt(0) == 'y') {
             addOrderLines();
         }
-
-        }
+    }
 
     //metode til at fjerne en ordrelinje fra menuen
     public void removeOrderLine() {
@@ -125,7 +134,7 @@ public class Order {
 
     // Temp setters skal måske fjernes senere.
     public void setPickUpTime(String pickUpTime) {
-        this.pickUpTime = pickUpTime;
+        this.pickUpTime = new PickupTime(pickUpTime);
     }
 
     public void setCompleted(boolean completed) {
@@ -148,7 +157,7 @@ public class Order {
     public String orderLinesToString(){
         String orderLines = "";
         for (int i = 0; i<orderLineItems.size(); i++){
-            orderLines += "\n" + orderLineItems.get(i);
+            orderLines = orderLines.concat("\n" + orderLineItems.get(i));
         }
         return orderLines;
     }
@@ -162,11 +171,11 @@ public class Order {
     // String repræsentation af Order objektet.
     @Override
     public String toString(){
-        String fuldført = "Nej";
+        String completed = "Nej";
         if(isCompleted()){
-            fuldført = "Ja";
+            completed = "Ja";
         }
         return "OrdreID: #" + orderID + " " + "Dato: " + formatDateToString(getDate()) + " Pickup: " + getPickUpTime()
-                + " " + orderLinesToString() + "\nTotal: " + getTotal() + "\nFuldført: " + fuldført + "\n";
+                + " " + orderLinesToString() + "\nTotal: " + getTotal() + "kr" + "\nFuldført: " + completed + "\n";
     }
 }

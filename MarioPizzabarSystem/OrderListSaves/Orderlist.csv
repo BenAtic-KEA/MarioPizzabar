@@ -1,1 +1,5 @@
 date;pickupTime;completed;pizzas;quantity
+21/04/2021;13:30;true;7-14;2-2
+21/04/2021;13:30;false;2;3
+21/04/2021;13:40;false;2;1
+21/04/2021;13:40;false;1;1

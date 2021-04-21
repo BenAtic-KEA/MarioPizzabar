@@ -2,6 +2,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class OrderController {
+
     public static void createOrder() throws FileNotFoundException {
         // Opret ny ordre via "OrderList", der står for at initialisere ordre-objektet og tilføje det til "theOrderList" (den interne ArrayList af ordrer).
         Order newOrder = OrderList.newOrder();

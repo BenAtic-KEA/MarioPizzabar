@@ -27,7 +27,4 @@ public class OrderList {
     public static void setOrder(Order order){
         theOrderList.add(order);
     }
-    public static void displayOrder(int index){
-        System.out.println(getOrder(index));
-    }
 }
