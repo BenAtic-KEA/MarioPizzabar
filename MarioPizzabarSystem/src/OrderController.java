@@ -15,7 +15,7 @@ public class OrderController {
     }
 
     public static void editOrder() throws FileNotFoundException {
-        System.out.println("To edit order, type order ID: ");
+        System.out.println("Indtast ordreID: ");
         int orderID = InputController.getOrderId();
 
         Order orderToEdit = OrderList.getOrder(orderID);

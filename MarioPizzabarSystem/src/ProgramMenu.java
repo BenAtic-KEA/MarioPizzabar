@@ -43,7 +43,7 @@ public class ProgramMenu {
                 int subMenuChoice = InputController.getMenuChoice(1, 2);
 
                 if (subMenuChoice == 1) {
-                    Statistics.showTotalRevenue(); // TODO "showTotalRevenue" tæller uafsluttede ordrer.
+                    Statistics.showTotalRevenue();
                 } else if (subMenuChoice == 2) {
                     Statistics.showNumberOfEachPizza();
                 }
