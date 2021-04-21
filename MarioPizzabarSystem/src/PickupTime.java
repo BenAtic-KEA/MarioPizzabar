@@ -1,7 +1,26 @@
+import java.util.Date;
+
 public class PickupTime {
 
-    /* Tænkte at det nok ville være godt med en separat klasse til at beregne pickup tidspunkter, ideen var at den
-    skulle have evnen til at beregne et estimat til hurtigst muligt. Desuden bør den også kunne kigge i ordrelisten mht. til
-    bookninger senere end hurtigst muligt, således at den ikke tillader at 10 kunder allesammen skal have 30 pizzaer kl 18.00.
-     */
+    private final int hour;
+    private final int minute;
+
+    PickupTime(String timeString){
+        String[] temp = timeString.split(":",2);
+        this.hour = Integer.parseInt(temp[0]);
+        this.minute = Integer.parseInt(temp[1]);
+    }
+
+    public int getHour(){
+        return hour;
+    }
+
+    public int getMinute(){
+        return minute;
+    }
+
+    @Override
+    public String toString(){
+        return hour + ":" + minute;
+    }
 }
