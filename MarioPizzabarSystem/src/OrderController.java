@@ -47,7 +47,7 @@ public class OrderController {
 
     public static void showActiveOrders() {
         // Hent listen af ordrer fra "orderList".
-        List<Order> theOrderList = OrderList.getTheOrderList();
+        List<Order> theOrderList = sortedByPickUpTime(OrderList.getTheOrderList());
 
         // Gennemløb listen af ordrer.
         for (int i = 0; i < theOrderList.size(); i++) {
@@ -76,5 +76,29 @@ public class OrderController {
             // Udskriv ordren, hvis den ikke er færdig.
             System.out.println(currentOrder.toString());
         }
+    }
+    public static List<Order> sortedByPickUpTime(List<Order> theOrderList) {
+
+        List<Order> sortedOrderList = theOrderList;
+        Order temp;
+        int i, j;
+        int N = theOrderList.size();
+
+        for (j = 1; j < N - 1; j++) {
+            for (i = 0; i < N - 1; i++) {
+
+                int totalMinutes = sortedOrderList.get(i).getPickUpTime().timeToMinutes();
+
+                if (totalMinutes > (sortedOrderList.get(i + 1).getPickUpTime().timeToMinutes())) {
+
+                    temp = sortedOrderList.get(i);
+
+                    sortedOrderList.set(i, sortedOrderList.get(i + 1));
+                    sortedOrderList.set(i + 1, temp);
+
+                }
+            }
+        }
+        return sortedOrderList;
     }
 }
