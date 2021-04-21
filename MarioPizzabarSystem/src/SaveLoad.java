@@ -82,7 +82,7 @@ public class SaveLoad {
             if (pizzaIDs.size() == quantities.size()){
                 OrderList.setOrder(new Order(dateInt,pickUpTime, completed, convertToIntArray(pizzaIDs), convertToIntArray(quantities), OrderList.getTheOrderList().size() + 1));
             }else{
-                System.out.println("This Order was corrupted - skipping.");
+                System.out.println("Ordren er korrupt. Ordren indlæses ikke.");
             }
         }
     }

@@ -175,7 +175,7 @@ public class Order {
         if(isCompleted()){
             completed = "Ja";
         }
-        return "OrdreID: #" + orderID + " " + "Dato: " + formatDateToString(getDate()) + " Pickup: " + getPickUpTime()
+        return "OrdreID: #" + orderID + " " + "Dato: " + formatDateToString(getDate()) + " Afhentningstidspunkt: " + getPickUpTime()
                 + " " + orderLinesToString() + "\nTotal: " + getTotal() + "kr" + "\nFuldført: " + completed + "\n";
     }
 }
