@@ -89,8 +89,8 @@ public class OrderController {
         int i, j;
         int N = theOrderList.size();
 
-        for (j = 1; j < N - 1; j++) {
-            for (i = 0; i < N - 1; i++) {
+        for (j = 0; j < N - 1; j++) {
+            for (i = 0; i < N - j - 1; i++) {
 
                 int totalMinutes = sortedOrderList.get(i).getPickUpTime().timeToMinutes();
 
