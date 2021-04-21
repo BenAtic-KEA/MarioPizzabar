@@ -19,6 +19,10 @@ public class PickupTime {
         return minute;
     }
 
+    public int timeToMinutes(){
+        return hour * 60 + minute;
+    }
+
     @Override
     public String toString(){
         return hour + ":" + minute;
