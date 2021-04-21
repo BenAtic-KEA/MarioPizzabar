@@ -16,7 +16,7 @@ public class SaveLoad {
     // Looper over Ordrerlisten med iterator og gemmer alle ordrene som Strings i den specificerede pathToFile
     public static void saveOrderList(String pathToFile) throws FileNotFoundException{
         PrintStream output = new PrintStream(new File(pathToFile));
-        output.println("date;pickupTime;completed;pizzas;quantity");
+        output.println("dato;afhæntningstid;afsluttet;pizzaer;antal");
         Order order;
         Iterator<Order> itr = OrderList.getTheOrderList().iterator();
         while(itr.hasNext()){

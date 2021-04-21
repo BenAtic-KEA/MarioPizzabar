@@ -65,7 +65,7 @@ public class Statistics {
         for (int i = 0; i < pizzaCount.length; i++){
             String pizzaName = PizzaMenu.getPizza(i).getName();
             int pizzaMenuNr = i + 1;
-            System.out.println("Pizzanr.: " + pizzaMenuNr + " " + pizzaName + " Amount sold: " + pizzaCount[i]);
+            System.out.println("Nr.: " + pizzaMenuNr + " " + pizzaName + " Antal: " + pizzaCount[i]);
 
         }
 

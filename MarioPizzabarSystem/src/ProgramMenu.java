@@ -38,8 +38,8 @@ public class ProgramMenu {
             }
             // Vis statistik.
             else if (menuChoice == 7) {
-                System.out.println("[1] - Show revenue. ");
-                System.out.println("[2] - Show pizza statistics. ");
+                System.out.println("[1] - Vis indtjening. ");
+                System.out.println("[2] - Vis antal solgte pizzaer.");
                 int subMenuChoice = InputController.getMenuChoice(1, 2);
 
                 if (subMenuChoice == 1) {
@@ -49,7 +49,7 @@ public class ProgramMenu {
                 }
             } else {
                 // Hvis ikke vi har et menupunkt, der svarer til menuChoice, throw.
-                throw new IllegalStateException("Unexpected value: " + menuChoice);
+                throw new IllegalStateException("Uforventet værdi: " + menuChoice);
             }
         }
     }
@@ -57,13 +57,13 @@ public class ProgramMenu {
     public static void displayMenu() {
         System.out.println("Marios Pizzeria");
         System.out.println("------------------------");
-        System.out.println("[1] - Create new order.");
-        System.out.println("[2] - Edit order.");
-        System.out.println("[3] - Complete order.");
+        System.out.println("[1] - Opret ny ordre.");
+        System.out.println("[2] - Rediger ordre.");
+        System.out.println("[3] - Afslut ordre.");
         System.out.println("------------------------");
-        System.out.println("[4] - Show menu.");
-        System.out.println("[5] - Show incomplete orders.");
-        System.out.println("[6] - Show order history.");
-        System.out.println("[7] - Show statistics.");
+        System.out.println("[4] - Vis menu.");
+        System.out.println("[5] - Vis uafsluttede ordre.");
+        System.out.println("[6] - Vis ordre historie.");
+        System.out.println("[7] - Vis statistik.");
     }
 }
