@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 public class ProgramMenu {
 
     public static void main(String[] args) throws FileNotFoundException {
-        // TODO "FileNotFoundException" kan forekomme, skal den håndteres? (eks. brugervenlig fejlbesked hvis filerne ikke findes)
         // Indlæs menukort fra CSV-fil.
         PizzaMenu.listOfPizzas();
         // Indlæs ordrehistorik fra CSV-fil.

@@ -11,7 +11,7 @@ public class OrderController {
         SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
 
         // Udskriv ordren, så Alfonzo kan se den.
-        System.out.println("Created order: " + newOrder.toString());
+        System.out.println("Lav ny ordre: \n" + newOrder.toString());
     }
 
     public static void editOrder() throws FileNotFoundException {
@@ -19,10 +19,10 @@ public class OrderController {
         int orderID = InputController.getOrderId();
 
         Order orderToEdit = OrderList.getOrder(orderID);
-        System.out.println("Editing order: " + orderToEdit.getOrderID());
+        System.out.println("Redigér ordre: " + orderToEdit.getOrderID());
         System.out.println("------------------------");
-        System.out.println("[1] - Add order line. ");
-        System.out.println("[2] - Remove most recent order line. ");
+        System.out.println("[1] - Tilføj ordrelinje ");
+        System.out.println("[2] - Fjern ordrelinje ");
 
         int subMenuChoice = InputController.getMenuChoice(1, 2);
         if (subMenuChoice == 1) {
@@ -36,7 +36,7 @@ public class OrderController {
     }
 
     public static void completeOrder() throws FileNotFoundException {
-        System.out.println("To complete order, type order ID: ");
+        System.out.println("Afslut ordre, indtast ordre ID: ");
         int orderID = InputController.getOrderId();
         Order orderToComplete = OrderList.getOrder(orderID);
         orderToComplete.setCompleted(true);

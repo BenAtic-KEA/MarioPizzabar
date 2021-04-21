@@ -51,12 +51,10 @@ public class OrderLineItem {
 
     @Override
     public String toString() {
-        return  "subtotal = " + subtotal +
-                ", quantity = " + quantity +
-                ", pizza = " + pizza;
+        return  "Nr. " + getPizza().getNr() + " " +
+                getPizza().getName() + ". " +
+                getPizza().getPrice() + "Kr" +
+                " Antal: " + quantity +
+                " Subtotal: " + subtotal + "Kr";
     }
 }
-
-
-//OrderLineItem burde være en datatype i ordren.
-

@@ -103,14 +103,14 @@ public class Order {
         System.out.println("Hvilken ordrelinje skal fjernes?");
 
         for(int i = 0; i < orderLineItems.size(); i++){
-            System.out.println((i + 1) + " " + orderLineItems.get(i));
+            System.out.println("[" + (i + 1) + "] " + orderLineItems.get(i));
         }
-        int orderID = sc.nextInt();
-        if (orderID - 1 < orderLineItems.size()) {
-            orderLineItems.remove(orderID - 1);
-            System.out.println("Pizza id: " + orderID + "er blevet fjernet");
+        int orderLineID = sc.nextInt();
+        if (orderLineID - 1 < orderLineItems.size()) {
+            orderLineItems.remove(orderLineID - 1);
+            System.out.println("Pizza id: " + orderLineID + " er blevet fjernet");
         } else {
-            System.out.println("dette ordreID eksisterer ikke");
+            System.out.println("Dette ordre linje ID eksisterer ikke");
         }
 
     }

@@ -93,24 +93,24 @@ public class PizzaMenu {
             }
         }
 
-
     public static int longestPizzaName(){
         int longestName = 0;
 
-            for (int i = 0; i < pizzaMenu.size(); i++){
+        for (int i = 0; i < pizzaMenu.size(); i++){
 
-                int tempLength = pizzaMenu.get(i).getName().length();
+            int tempLength = pizzaMenu.get(i).getName().length();
 
-                if(tempLength > longestName){
+            if(tempLength > longestName){
 
-                    longestName = tempLength;
-                }
+                longestName = tempLength;
             }
-            return longestName;
         }
+        return longestName;
+    }
 
     public static int longestIngredientsString(){
         int longestString = 0;
+
         for (int i = 0; i < pizzaMenu.size(); i++){
 
             int tempLength = pizzaMenu.get(i).getIngredients().length();
