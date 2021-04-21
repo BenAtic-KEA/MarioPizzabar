@@ -6,7 +6,28 @@ public class ProgramMenu {
         // Indlæs menukort fra CSV-fil.
         PizzaMenu.listOfPizzas();
         // Indlæs ordrehistorik fra CSV-fil.
-        SaveLoad.loadOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
+        System.out.println("\nMarios Pizzeria");
+        System.out.println("------------------------");
+        System.out.println("[1] Start ny ordreliste");
+        System.out.println("[2] Indlæs ordreliste fra fil");
+
+        while (true) {
+            int choice = InputController.getMenuChoice(1,2);
+            System.out.println("Indtast filnavn: ");
+            if (choice == 1){
+                String input = InputController.getFileName();
+                OrderController.setSaveFilePath(input);
+                System.out.println("File is saved in: " + input);
+                break;
+            }
+            if (choice == 2){
+                String input = InputController.getFileName();
+                SaveLoad.loadOrderList(input);
+                OrderController.setSaveFilePath(input);
+                System.out.println("File is saved in: " + input);
+                break;
+            }
+        }
 
         // Start program-loop.
         while (true) {
@@ -47,15 +68,20 @@ public class ProgramMenu {
                 } else if (subMenuChoice == 2) {
                     Statistics.showNumberOfEachPizza();
                 }
-            } else {
-                // Hvis ikke vi har et menupunkt, der svarer til menuChoice, throw.
+            }
+            // Afslut.
+            else if (menuChoice == 8) {
+                break;
+            }
+            // Hvis ikke vi har et menupunkt, der svarer til menuChoice, throw.
+            else {
                 throw new IllegalStateException("Uforventet værdi: " + menuChoice);
             }
         }
     }
 
     public static void displayMenu() {
-        System.out.println("Marios Pizzeria");
+        System.out.println("\nMarios Pizzeria");
         System.out.println("------------------------");
         System.out.println("[1] - Opret ny ordre.");
         System.out.println("[2] - Rediger ordre.");
@@ -65,5 +91,6 @@ public class ProgramMenu {
         System.out.println("[5] - Vis uafsluttede ordre.");
         System.out.println("[6] - Vis ordre historie.");
         System.out.println("[7] - Vis statistik.");
+        System.out.println("[8] - Luk programmet");
     }
 }

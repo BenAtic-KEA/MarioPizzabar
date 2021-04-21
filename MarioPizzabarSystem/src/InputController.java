@@ -5,7 +5,7 @@ public class InputController {
     private static final Scanner scanner = new Scanner(System.in);
 
     private static final int MINIMUM_MENU_CHOICE = 1;
-    private static final int MAXIMUM_MENU_CHOICE = 7;
+    private static final int MAXIMUM_MENU_CHOICE = 8;
     private static final int MINIMUM_ORDER_ID = 1;
 
     public static int getMenuChoice() {
@@ -35,6 +35,28 @@ public class InputController {
                 return maybeOrderId;
             }
         }
+    }
 
+    public static String getFileName(){
+        Scanner sc = new Scanner(System.in);
+        String fileName;
+        while (true) {
+            fileName = sc.nextLine();
+            if (isNotIllegal(fileName)){
+                return "MarioPizzabarSystem/OrderListSaves/" + fileName + ".csv";
+            }
+            System.out.println("Filnavnet indeholder et ugyldigt symbol:  \\/<>:\"|?*\nprøv igen:");
+        }
+    }
+    private static boolean isNotIllegal(String input){
+        String illegalChars ="<>:\"/\\|?*";
+        for (int i = 0; i<input.length(); i++){
+            for (int j = 0; j<illegalChars.length(); j++){
+                if (input.charAt(i) == illegalChars.charAt(j)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

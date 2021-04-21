@@ -3,12 +3,17 @@ import java.util.List;
 
 public class OrderController {
 
+    private static String saveFilePath;
+    public static void setSaveFilePath(String inputFromUser){
+        saveFilePath = inputFromUser;
+    }
+
     public static void createOrder() throws FileNotFoundException {
         // Opret ny ordre via "OrderList", der står for at initialisere ordre-objektet og tilføje det til "theOrderList" (den interne ArrayList af ordrer).
         Order newOrder = OrderList.newOrder();
 
         // Gem den nyoprettede ordre med det samme, så Alfonzo ikke skal huske at gøre det løbende.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
+        SaveLoad.saveOrderList(saveFilePath);
 
         // Udskriv ordren, så Alfonzo kan se den.
         System.out.println("Lav ny ordre: \n" + newOrder.toString());
@@ -32,7 +37,7 @@ public class OrderController {
         }
 
         // Gem den opdaterede ordre.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
+        SaveLoad.saveOrderList(saveFilePath);
     }
 
     public static void completeOrder() throws FileNotFoundException {
@@ -41,7 +46,7 @@ public class OrderController {
         Order orderToComplete = OrderList.getOrder(orderID);
         orderToComplete.setCompleted(true);
         // Gem den opdaterede ordre.
-        SaveLoad.saveOrderList("MarioPizzabarSystem/OrderListSaves/Orderlist.csv");
+        SaveLoad.saveOrderList(saveFilePath);
 
     }
 
