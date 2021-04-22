@@ -30,7 +30,7 @@ public class InputController {
             // Vi bruger "maybeOrderId", da ugyldige ordrer ID'er kan forekomme.
             int maybeOrderId = scanner.nextInt();
             if (maybeOrderId >= MINIMUM_ORDER_ID &&
-                maybeOrderId <= OrderList.getTheOrderList().size()) {
+                maybeOrderId <= Order.getOrderCounter()) {
                 // Gyldigt ordre-id.
                 return maybeOrderId;
             }

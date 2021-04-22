@@ -154,9 +154,10 @@ public class Order {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public static int getOrderCounter(){
+        return orderCounter;
     }
+
 
     // Loop der pakker Arraylisten ud og laver en samlet string med newlines for hvert objekt. Bruger OrderLineItem's toString().
     public String orderLinesToString(){
