@@ -9,19 +9,24 @@ public class Order {
     private double total;
     private Date date;
     private int orderID;
+    private static int orderCounter = 1;
     private PickupTime pickUpTime;
     private boolean completed;
     private final List<OrderLineItem> orderLineItems = new ArrayList<>();
 
     // Tom constructor
-    Order(){}
+    Order(){
+        this.orderID = orderID + orderCounter;
+        orderCounter++;
+    }
 
     // Fuld constructor
-    Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity, int orderID){
+    Order(int[] date, String pickupTime,  boolean completed, int[] pizzas, int[] quantity){
         loadDate(date[2]-1900, date[1]-1, date[0]);
         this.pickUpTime = new PickupTime(pickupTime);
         this.completed = completed;
-        this.orderID = orderID;
+        this.orderID = orderID + orderCounter;
+        orderCounter++;
         for (int i = 0 ; i < pizzas.length ; i++) {
             loadOrderLine(PizzaMenu.getPizza(pizzas[i]-1), quantity[i]);
         }

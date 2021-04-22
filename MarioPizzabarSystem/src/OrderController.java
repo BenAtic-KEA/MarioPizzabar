@@ -22,10 +22,10 @@ public class OrderController {
     public static void editOrder() throws FileNotFoundException {
         System.out.println("Indtast ordreID: ");
         int orderID = InputController.getOrderId();
-        Order orderToEdit;
+
         for (int i = 0; i < OrderList.getTheOrderList().size();i++) {
             if (OrderList.getOrder(i + 1).getOrderID() == orderID) {
-                orderToEdit = OrderList.getOrder(i + 1);
+                Order orderToEdit = OrderList.getOrder(i + 1);
 
                 System.out.println("Redigér ordre: " + orderToEdit.getOrderID());
                 System.out.println("------------------------");
@@ -36,7 +36,12 @@ public class OrderController {
                 if (subMenuChoice == 1) {
                     orderToEdit.addOrderLine();
                 } else if (subMenuChoice == 2) {
-                    orderToEdit.removeOrderLine();
+                    if (orderToEdit.getOrderLineItems().size() < 2) {
+                        OrderList.getTheOrderList().remove(i);
+                        System.out.println("Ordre:" + orderToEdit.getOrderID() +" er slettet");
+                    } else {
+                        orderToEdit.removeOrderLine();
+                    }
                 }
             }
         }

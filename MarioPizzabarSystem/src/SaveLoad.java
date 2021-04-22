@@ -80,7 +80,7 @@ public class SaveLoad {
 
             // Tester om ordren mangler data og tilføjer ordren til theOrderList.
             if (pizzaIDs.size() == quantities.size()){
-                OrderList.setOrder(new Order(dateInt,pickUpTime, completed, convertToIntArray(pizzaIDs), convertToIntArray(quantities), OrderList.getTheOrderList().size() + 1));
+                OrderList.setOrder(new Order(dateInt,pickUpTime, completed, convertToIntArray(pizzaIDs), convertToIntArray(quantities)));
             }else{
                 System.out.println("Ordren er korrupt. Ordren indlæses ikke.");
             }
