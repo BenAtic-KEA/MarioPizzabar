@@ -11,14 +11,6 @@ public class PickupTime {
         this.minute = Integer.parseInt(temp[1]);
     }
 
-    public int getHour(){
-        return hour;
-    }
-
-    public int getMinute(){
-        return minute;
-    }
-
     public int timeToMinutes(){
         return hour * 60 + minute;
     }

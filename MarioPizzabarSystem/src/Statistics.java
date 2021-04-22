@@ -59,19 +59,20 @@ public class Statistics {
     /**
      * printer antallet af pizzaer
      */
-    public static void showNumberOfEachPizza(){ //TODO 1.1 burde denne rykkes til controlleren også kalde numberOfEachPizza()?
+    public static void showNumberOfEachPizza() { //TODO 1.1 burde denne rykkes til controlleren også kalde numberOfEachPizza()?
         int[] pizzaCount = numberOfEachPizza();
 
-        for (int i = 0; i < pizzaCount.length; i++){
+        for (int i = 0; i < pizzaCount.length; i++) {
             String pizzaName = PizzaMenu.getPizza(i).getName();
             int pizzaMenuNr = i + 1;
             System.out.println("Nr.: " + pizzaMenuNr + " " + pizzaName + " Antal: " + pizzaCount[i]);
 
         }
+        System.out.println("\nSamlet antal pizzaer solgt: " + numberOfOrderedPizzas());
 
     }
 
-    private static double totalRevenue(){ //TODO hvis 2.1 er gældende skal denne gøres public
+    private static double totalRevenue() { //TODO hvis 2.1 er gældende skal denne gøres public
 
         List<Order> orderArray = OrderList.getTheOrderList();
         double totalRevenue = .0;
@@ -89,27 +90,30 @@ public class Statistics {
     /**
      * printer omsætning
      */
-    public static void showTotalRevenue(){ //TODO 2.1 burde denne rykkes til controlleren også kalde totalRevenue()?
+    public static void showTotalRevenue() { //TODO 2.1 burde denne rykkes til controlleren også kalde totalRevenue()?
 
         double revenue = totalRevenue();
 
+        System.out.println("Antal afsluttede ordre: " + numberOfOrders());
         System.out.println("Omsætningen for dagen: " + revenue + "kr");
     }
 
     /**
      * antallet af ordre på ordrelisten
+     *
      * @return int
      */
-    public static int numberOfOrders(){
+    private static int numberOfOrders() {
 
         List<Order> amountOfOrders = OrderList.getTheOrderList();
         int orderCount = 0;
 
 
-        for(Order amountOfOrder : amountOfOrders){
-
-            orderCount++;
+        for (Order amountOfOrder : amountOfOrders) {
+            if (amountOfOrder.isCompleted()) {
+                orderCount++;
+            }
         }
-        return orderCount;
+    return orderCount;
     }
 }

@@ -17,34 +17,18 @@ public class Pizza {
             return this.nr;
         }
 
-        public void setNr(int newNr) {
-            this.nr = newNr;
-        }
-
         public String getName() {
             return this.name;
-        }
-
-        public void setName(String newName){
-            this.name = newName;
         }
 
         public String getIngredients() {
             return this.ingredients;
         }
 
-        public void setIngredients(String newIngredients){
-            this.ingredients = newIngredients;
-        }
-
         public int getPrice() {
             return this.price;
         }
 
-        public void setPrice(int newPrice) {
-            this.price = newPrice;
-
-        }
         //Overriding tostring
         @Override
         public String toString(){
