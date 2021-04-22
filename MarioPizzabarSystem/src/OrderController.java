@@ -22,20 +22,24 @@ public class OrderController {
     public static void editOrder() throws FileNotFoundException {
         System.out.println("Indtast ordreID: ");
         int orderID = InputController.getOrderId();
+        Order orderToEdit;
+        for (int i = 0; i < OrderList.getTheOrderList().size();i++) {
+            if (OrderList.getOrder(i + 1).getOrderID() == orderID) {
+                orderToEdit = OrderList.getOrder(i + 1);
 
-        Order orderToEdit = OrderList.getOrder(orderID);
-        System.out.println("Redigér ordre: " + orderToEdit.getOrderID());
-        System.out.println("------------------------");
-        System.out.println("[1] - Tilføj ordrelinje ");
-        System.out.println("[2] - Fjern ordrelinje ");
+                System.out.println("Redigér ordre: " + orderToEdit.getOrderID());
+                System.out.println("------------------------");
+                System.out.println("[1] - Tilføj ordrelinje ");
+                System.out.println("[2] - Fjern ordrelinje ");
 
-        int subMenuChoice = InputController.getMenuChoice(1, 2);
-        if (subMenuChoice == 1) {
-            orderToEdit.addOrderLine();
-        } else if (subMenuChoice == 2) {
-            orderToEdit.removeOrderLine();
+                int subMenuChoice = InputController.getMenuChoice(1, 2);
+                if (subMenuChoice == 1) {
+                    orderToEdit.addOrderLine();
+                } else if (subMenuChoice == 2) {
+                    orderToEdit.removeOrderLine();
+                }
+            }
         }
-
         // Gem den opdaterede ordre.
         SaveLoad.saveOrderList(saveFilePath);
     }
@@ -43,11 +47,12 @@ public class OrderController {
     public static void completeOrder() throws FileNotFoundException {
         System.out.println("Afslut ordre, indtast ordre ID: ");
         int orderID = InputController.getOrderId();
-        Order orderToComplete = OrderList.getOrder(orderID);
-        orderToComplete.setCompleted(true);
-        // Gem den opdaterede ordre.
+        for (int i = 0; i < OrderList.getTheOrderList().size();i++) {
+            if (OrderList.getOrder(i + 1).getOrderID() == orderID) {
+                OrderList.getOrder(i + 1).setCompleted(true);
+            }
+        }
         SaveLoad.saveOrderList(saveFilePath);
-
     }
 
     public static void showActiveOrders() {
